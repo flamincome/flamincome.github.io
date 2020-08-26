@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Flamincome</title>
+</head>
+
+<body style="background-color: #000;">
+    <div
+        style="background-color: #111; border-radius: 4px; border: 1px solid #fff; box-shadow: 1px 1px 15px 3px rgba(255, 255, 255, 0.6); margin: 15% auto; width: 64%; height: 50vh;">
+        <div id="terminal"></div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="ptty.jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var $ptty = $('#terminal').Ptty({
+                i18n: {
+                    welcome: 'WELCOME TO <b>FLAMINCOME</b><br><br><pre>            __\n           /(`o\n     ,-,  //  \\\\\n    (,,,) ||   V\n   (,,,,)\\//\n   (,,,/w)-\'\n   \\,,/w)\n   `V/uu\n     / |\n     | |\n     o o\n     \\ |\n\\,/  ,\\|,.  \\,/\n</pre><br>Type <b>help</b> to list the available commands.<br>',
+                }
+            });
+            $ptty.register('command', {
+                name: 'flamincome',
+                method: function (cmd) {
+                    return {
+                        out: '<pre>            __\n           /(`o\n     ,-,  //  \\\\\n    (,,,) ||   V\n   (,,,,)\\//\n   (,,,/w)-\'\n   \\,,/w)\n   `V/uu\n     / |\n     | |\n     o o\n     \\ |\n\\,/  ,\\|,.  \\,/\n</pre>',
+                    };
+                },
+                help: 'print the flamincome logo'
+            });
+            $ptty.register('command', {
+                name: 'github',
+                method: function (cmd) {
+                    return {
+                        out: '<a href="https://github.com/flamincome">Flamincome Github</a>',
+                    };
+                },
+                help: 'flamincome github page'
+            });
+        });
+    </script>
+</body>
+
+
+
+
+</html>
