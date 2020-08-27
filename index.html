@@ -18,29 +18,51 @@
 
     <script>
         $(document).ready(function () {
-            var $ptty = $('#terminal').Ptty({
-                i18n: {
-                    welcome: 'WELCOME TO <b>FLAMINCOME</b><br><br><pre>            __\n           /(`o\n     ,-,  //  \\\\\n    (,,,) ||   V\n   (,,,,)\\//\n   (,,,/w)-\'\n   \\,,/w)\n   `V/uu\n     / |\n     | |\n     o o\n     \\ |\n\\,/  ,\\|,.  \\,/\n</pre><br>Type <b>help</b> to list the available commands.<br>',
-                }
-            });
-            $ptty.register('command', {
-                name: 'flamincome',
-                method: function (cmd) {
-                    return {
-                        out: '<pre>            __\n           /(`o\n     ,-,  //  \\\\\n    (,,,) ||   V\n   (,,,,)\\//\n   (,,,/w)-\'\n   \\,,/w)\n   `V/uu\n     / |\n     | |\n     o o\n     \\ |\n\\,/  ,\\|,.  \\,/\n</pre>',
-                    };
-                },
-                help: 'print the flamincome logo'
-            });
-            $ptty.register('command', {
-                name: 'github',
-                method: function (cmd) {
-                    return {
-                        out: '<a href="https://github.com/flamincome">Flamincome Github</a>',
-                    };
-                },
-                help: 'flamincome github page'
-            });
+            fetch("/logo/flamincome").then(resp => {
+                resp.text().then(logo => {
+                    let welcome = document.createElement('div')
+                    let welcome_header = document.createElement('p')
+                    let welcome_logo = document.createElement('pre')
+                    let welcome_footer = document.createElement('p')
+                    welcome_header.style.textAlign = 'center'
+                    welcome_logo.style.textAlign = 'center'
+                    welcome_footer.style.textAlign = 'center'
+                    welcome_header.innerHTML = 'welcome to <b>flamincome</b>'
+                    welcome_logo.innerText = logo
+                    welcome_footer.innerHTML = 'type <b>help</b> to list the available commands'
+                    welcome.appendChild(welcome_header)
+                    welcome.appendChild(welcome_logo)
+                    welcome.appendChild(welcome_footer)
+
+                    let $ptty = $('#terminal').Ptty({
+                        i18n: {
+                            welcome: welcome.outerHTML,
+                        }
+                    });
+                    $ptty.register('command', {
+                        name: 'flamincome',
+                        method: function (cmd) {
+                            let element = document.createElement('pre');
+                            element.innerText = logo
+                            element.style.textAlign = 'center'
+                            return {
+                                out: element.outerHTML,
+                            };
+                        },
+                        help: 'print the flamincome logo'
+                    });
+                    $ptty.register('command', {
+                        name: 'github',
+                        method: function (cmd) {
+                            return {
+                                out: '<a href="https://github.com/flamincome">Flamincome Github</a>',
+                            };
+                        },
+                        help: 'flamincome github page'
+                    });
+                    document.getElementById('content').innerText = text
+                })
+            })
         });
     </script>
 </body>
