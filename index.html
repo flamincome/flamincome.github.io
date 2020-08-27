@@ -42,11 +42,20 @@
                     $ptty.register('command', {
                         name: 'flamincome',
                         method: function (cmd) {
-                            let element = document.createElement('pre');
-                            element.innerText = logo
-                            element.style.textAlign = 'center'
+                            let div = document.createElement('div')
+                            let pre = document.createElement('pre')
+                            let p = document.createElement('p')
+                            let args = $ptty.get_command_option('last').split(' ')
+                            args.shift()
+                            p.innerText = args.join(' ');
+                            pre.innerText = logo
+                            div.style.justifyContent = 'center'
+                            div.style.alignItems = 'center'
+                            div.style.display = 'flex'
+                            div.appendChild(pre)
+                            div.appendChild(p)
                             return {
-                                out: element.outerHTML,
+                                out: div.outerHTML,
                             };
                         },
                         help: 'print the flamincome logo'
