@@ -1,4 +1,4 @@
-# <flamincome.github.io>
+# [flamincome.github.io](https://flamincome.github.io)
 
 official website of flamincome
 
