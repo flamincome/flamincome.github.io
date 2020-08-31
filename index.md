@@ -1,4 +1,3 @@
-
 <div style="height: 64vh;">
     <div id="terminal" style="scrollbar-width: thin;"></div>
 </div>
