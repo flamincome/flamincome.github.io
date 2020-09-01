@@ -10,7 +10,7 @@ $(document).ready(function () {
             welcome_footer.style.textAlign = 'center'
             welcome_header.innerHTML = 'welcome to <b>flamincome</b>'
             welcome_logo.innerText = logo
-            welcome_footer.innerHTML = 'coolest (most profitable) <a href="https://flamingo.finance">flamingo</a> farmer, type <b>tutorial</b> to get start<br><b>USE AT YOUR OWN RISK!!!</b>'
+            welcome_footer.innerHTML = 'get start at <a href="https://flamincome.github.io/docs">docs</a><br><b>USE AT YOUR OWN RISK!!!</b>'
             welcome.appendChild(welcome_header)
             welcome.appendChild(welcome_logo)
             welcome.appendChild(welcome_footer)
@@ -21,7 +21,7 @@ $(document).ready(function () {
                 }
             });
             $ptty.register('command', {
-                name: 'flamincome',
+                name: 'flamincome:',
                 method: function (cmd) {
                     let div = document.createElement('div')
                     let pre = document.createElement('pre')
@@ -47,34 +47,37 @@ $(document).ready(function () {
                 help: 'flamincome can speak (example: `flamincome I want $!`)'
             });
             $ptty.register('command', {
-                name: 'github',
+                name: 'get-github',
                 method: function (cmd) {
+                    if (cmd[1]) {
+                        return {
+                            out: `<a href="https://github.com/flamincome/${cmd[1]}">Flamincome Github</a>`,
+                        };
+                    }
                     return {
                         out: '<a href="https://github.com/flamincome">Flamincome Github</a>',
                     };
                 },
+                options: [1],
                 help: 'flamincome github page'
             });
             $ptty.register('command', {
-                name: 'tutorial',
+                name: 'deposit-token',
                 method: function (cmd) {
-                    let content = document.createElement('div')
-                    content.innerHTML += '<p>farm on <a href="https://flamingo.finance">flamingo</a>, earn profits</p>'
-                    content.innerHTML += '<p>decentralized asset manager who never lose $1</p>'
-                    content.innerHTML += '<p><br></p>'
-                    content.innerHTML += '<p>we are nobody but we are the most professional farmers on <a href="https://flamingo.finance">flamingo</a></p>'
-                    content.innerHTML += '<p>want to earn more, then use <b>flamincome</b></p>'
-                    content.innerHTML += '<p><br></p>'
-                    content.innerHTML += '<p>the project is under developing (because <a href="https://flamingo.finance">flamingo</a> is also under developing) but we will be ready once <a href="https://flamingo.finance">flamingo</a> is ready</p>'
-                    content.innerHTML += '<p><br></p>'
-                    content.innerHTML += '<p>follow our <a href="https://github.com/flamincome">github</a> for more news and events</p>'
-                    content.innerHTML += '<p><br></p>'
-                    content.innerHTML += '<p>type <b>help</b> to see more command to use</p>'
                     return {
-                        out: content.outerHTML,
+                        out: 'coming soon ...',
                     };
                 },
-                help: 'flamincome github page'
+                help: 'deposit'
+            });
+            $ptty.register('command', {
+                name: 'withdraw-token',
+                method: function (cmd) {
+                    return {
+                        out: 'coming soon ...',
+                    };
+                },
+                help: 'withdraw'
             });
         })
     })
