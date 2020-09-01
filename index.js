@@ -51,7 +51,7 @@ $(document).ready(function () {
                 method: function (cmd) {
                     if (cmd[1]) {
                         return {
-                            out: `<a href="https://github.com/flamincome/${cmd[1]}">Flamincome Github</a>`,
+                            out: `<a href="https://github.com/flamincome/${cmd[1]}">${cmd[1]}</a>`,
                         };
                     }
                     return {
