@@ -8,6 +8,7 @@ $(document).ready(function () {
     welcome_footer.id = 'welcome_footer'
     welcome_header.style.textAlign = 'center'
     welcome_logo.style.textAlign = 'center'
+    welcome_logo.innerText = 'loading ...'
     welcome_footer.style.textAlign = 'center'
     welcome_header.innerHTML = 'welcome to <b>flamincome</b>'
     welcome_footer.innerHTML = 'get start at <a href="https://flamincome.github.io/docs">docs</a><br><b>USE AT YOUR OWN RISK!!!</b>'
