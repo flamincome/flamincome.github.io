@@ -1,5 +1,5 @@
 <div style="height: 64vh;">
-    <div id="terminal" style="scrollbar-width: thin;"></div>
+    <div id="terminal" style="scrollbar-width: thin;">loading ...</div>
 </div>
 <footer>
 <a href="https://flamincome.github.io">home</a>
