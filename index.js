@@ -21,33 +21,6 @@ $(document).ready(function () {
             welcome: welcome.outerHTML,
         }
     });
-
-    $ptty.register('command', {
-        name: 'flamincome:',
-        method: function (cmd) {
-            let div = document.createElement('div')
-            let pre = document.createElement('pre')
-            let p = document.createElement('p')
-            let args = $ptty.get_command_option('last').split(' ')
-            args.shift()
-            p.innerText = args.join(' ');
-            pre.innerText = logo
-            pre.style.backgroundColor = 'transparent'
-            pre.style.border = '0px'
-            div.style.justifyContent = 'center'
-            div.style.alignItems = 'center'
-            div.style.display = 'flex'
-            div.style.backgroundColor = 'rgba(0,0,0,0.9)'
-            div.style.border = '1px solid rgba(255,255,255,0.15)'
-            p.style.color = '#b5e853'
-            div.appendChild(pre)
-            div.appendChild(p)
-            return {
-                out: div.outerHTML,
-            };
-        },
-        help: 'flamincome can speak (example: `flamincome I want $!`)'
-    });
     $ptty.register('command', {
         name: 'get-github',
         method: function (cmd) {
@@ -85,6 +58,32 @@ $(document).ready(function () {
     fetch("/logo/flamincome").then(resp => {
         resp.text().then(logo => {
             $('#welcome_logo').text(logo)
+            $ptty.register('command', {
+                name: 'flamincome:',
+                method: function (cmd) {
+                    let div = document.createElement('div')
+                    let pre = document.createElement('pre')
+                    let p = document.createElement('p')
+                    let args = $ptty.get_command_option('last').split(' ')
+                    args.shift()
+                    p.innerText = args.join(' ');
+                    pre.innerText = logo
+                    pre.style.backgroundColor = 'transparent'
+                    pre.style.border = '0px'
+                    div.style.justifyContent = 'center'
+                    div.style.alignItems = 'center'
+                    div.style.display = 'flex'
+                    div.style.backgroundColor = 'rgba(0,0,0,0.9)'
+                    div.style.border = '1px solid rgba(255,255,255,0.15)'
+                    p.style.color = '#b5e853'
+                    div.appendChild(pre)
+                    div.appendChild(p)
+                    return {
+                        out: div.outerHTML,
+                    };
+                },
+                help: 'flamincome can speak (example: `flamincome I want $!`)'
+            });
         })
     })
 });
