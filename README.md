@@ -1,6 +1,6 @@
 # [flamincome.github.io](https://flamincome.github.io)
 
-official website of flamincome
+~~official~~ website of flamincome
 
 # flamincome
 
