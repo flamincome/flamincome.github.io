@@ -5,7 +5,7 @@ $(document).ready(function () {
     let welcome_footer = document.createElement('p')
     welcome_header.id = 'welcome_header'
     welcome_logo.id = 'welcome_logo'
-    welcome_footoer.id = 'welcome_footer'
+    welcome_footer.id = 'welcome_footer'
     welcome_header.style.textAlign = 'center'
     welcome_logo.style.textAlign = 'center'
     welcome_footer.style.textAlign = 'center'
